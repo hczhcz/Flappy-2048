@@ -16,6 +16,8 @@ body {
   clear: both; }
 
 h1.title {
+  max-width: 1px;
+  white-space: nowrap;
   font-size: 50px;
   font-weight: bold;
   margin: 25px 0 0 0;
@@ -512,6 +514,8 @@ hr {
     padding: 0 20px; }
 
   h1.title {
+    max-width: 1px;
+    white-space: nowrap;
     font-size: 27px;
     margin-top: 15px; }
 
