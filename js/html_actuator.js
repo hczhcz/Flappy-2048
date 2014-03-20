@@ -128,14 +128,14 @@ HTMLActuator.prototype.positionClass = function (position) {
 };
 
 HTMLActuator.prototype.updateScore = function (score) {
-  this.clearContainer(this.scoreContainer);
+  //this.clearContainer(this.scoreContainer);
 
   var difference = score - this.score;
   this.score = score;
 
-  this.scoreContainer.textContent = this.score;
-
   if (difference > 0) {
+    this.scoreContainer.textContent = this.score;
+
     var addition = document.createElement("div");
     addition.classList.add("score-addition");
     addition.textContent = "+" + difference;
