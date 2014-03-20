@@ -21,23 +21,25 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
   var classes = ["tile", "tile-bird"];
 
-       if (metadata.score > 2048) classes.push("tile-super")
-  else if (metadata.score > 1024) classes.push("tile-2048")
-  else if (metadata.score >  512) classes.push("tile-1024")
-  else if (metadata.score >  256) classes.push("tile-512")
-  else if (metadata.score >  128) classes.push("tile-256")
-  else if (metadata.score >   64) classes.push("tile-128")
-  else if (metadata.score >   32) classes.push("tile-64")
-  else if (metadata.score >   16) classes.push("tile-32")
-  else if (metadata.score >    8) classes.push("tile-16")
-  else if (metadata.score >    4) classes.push("tile-8")
-  else if (metadata.score >    2) classes.push("tile-4")
-  else                            classes.push("tile-2");
+  var s = Math.floor(metadata.score);
+
+       if (s > 2048) classes.push("tile-super")
+  else if (s > 1024) classes.push("tile-2048")
+  else if (s >  512) classes.push("tile-1024")
+  else if (s >  256) classes.push("tile-512")
+  else if (s >  128) classes.push("tile-256")
+  else if (s >   64) classes.push("tile-128")
+  else if (s >   32) classes.push("tile-64")
+  else if (s >   16) classes.push("tile-32")
+  else if (s >    8) classes.push("tile-16")
+  else if (s >    4) classes.push("tile-8")
+  else if (s >    2) classes.push("tile-4")
+  else               classes.push("tile-2");
 
   this.applyClasses(this.birdobj, classes);
 
   var zonesize = this.gridContainer.clientHeight;
-  var morepos = 0.75 * (metadata.score - Math.floor(metadata.score));
+  var morepos = 0.75 * (metadata.score - s);
 
   this.birdobj.style.top = metadata.birdpos * zonesize + "px";
 
@@ -51,10 +53,10 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
   this.blockobjc.style.left = (1.25 - morepos) * zonesize + "px";
   this.blockobjd.style.left = (1.25 - morepos) * zonesize + "px";
 
-  this.birdinn.textContent = Math.floor(metadata.score);
+  this.birdinn.textContent = s;
 
   window.requestAnimationFrame(function () {
-    self.updateScore(Math.floor(metadata.score));
+    self.updateScore(s);
     self.updateBestScore(Math.floor(metadata.bestScore));
   });
 };
