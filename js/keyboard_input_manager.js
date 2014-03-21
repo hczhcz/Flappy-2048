@@ -28,7 +28,7 @@ KeyboardInputManager.prototype.listen = function () {
                     event.shiftKey;
 
     if (!modifiers) {
-      event.preventDefault();
+      if (event.which < 48) event.preventDefault();
       self.emit("jump");
     }
   }
