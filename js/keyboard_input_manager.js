@@ -33,9 +33,15 @@ KeyboardInputManager.prototype.listen = function () {
     }
   }
 
+  function dojump2(event) {
+    event.preventDefault();
+    self.emit("jump");
+  }
+
   document.addEventListener("keydown", dojump);
-  document.addEventListener("click", dojump);
-  document.addEventListener("touchend", dojump);
+  var gridContainer = document.querySelector(".grid-container");
+  gridContainer.addEventListener("click", dojump2);
+  gridContainer.addEventListener("touchend", dojump2);
 };
 
 KeyboardInputManager.prototype.restart = function (event) {
