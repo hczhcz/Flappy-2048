@@ -39,9 +39,9 @@ KeyboardInputManager.prototype.listen = function () {
   }
 
   document.addEventListener("keydown", dojump);
-  var gridContainer = document.querySelector(".grid-container");
-  gridContainer.addEventListener("click", dojump2);
-  gridContainer.addEventListener("touchend", dojump2);
+  var gameContainer = document.querySelector(".game-container");
+  gameContainer.addEventListener("click", dojump2);
+  gameContainer.addEventListener("touchstart", dojump2);
 };
 
 KeyboardInputManager.prototype.restart = function (event) {
